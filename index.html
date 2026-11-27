@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en-AU" data-theme="storefront">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ChillASF: Essentials, made to be worn every day</title>
+  <meta name="description" content="Minimalist casual and smart-casual essentials. Build an outfit on the model, play a style game, then check out. Demo store.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300..800&family=Bodoni+Moda:wght@400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Classic deferred scripts (not ES modules) so the page also works when index.html is opened by double-click. -->
+  <script defer src="js/data.js"></script>
+  <script defer src="js/svg.js"></script>
+  <script defer src="js/main.js"></script>
+  <script defer src="js/suggest.js"></script>
+  <script defer src="js/cart.js"></script>
+  <script defer src="js/builder.js"></script>
+  <script defer src="js/games.js"></script>
+  <script defer src="js/shop.js"></script>
+  <script defer src="js/checkout.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="wordmark" href="#top" aria-label="ChillASF, back to top">ChillASF</a>
+      <button class="icon-btn menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="siteNav" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <nav id="siteNav" class="site-nav" aria-label="Main">
+        <a href="#builder">Build an Outfit</a>
+        <a href="#play">Play</a>
+        <a href="#suggestions">Suggestions</a>
+        <a href="#shop">Shop</a>
+      </nav>
+      <button class="cart-btn" id="cartBtn" aria-label="Open cart, 0 items">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <span class="cart-count" id="cartCount" aria-hidden="true">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <span id="top"></span>
+    <!-- Hero: full viewport, layered parallax -->
+    <section class="hero" id="hero" aria-labelledby="heroTitle">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow"><span aria-hidden="true">✦</span> New collection · Essentials, made to be worn every day</p>
+          <h1 id="heroTitle"><span class="display">Build your everyday</span> <span class="display-xl">UNIFORM</span></h1>
+          <p class="lede">Drag, drop and mix our essentials to see the full look before you buy.</p>
+          <div class="hero-ctas">
+            <a class="btn btn-primary" href="#builder" id="startStyling">Start styling</a>
+            <button class="btn btn-dark" type="button" data-game="quiz">Take the style quiz</button>
+          </div>
+          <p class="demo-note">Demo store: no payment is taken.</p>
+        </div>
+        <div class="hero-visual" id="heroVisual" role="group" aria-label="Featured looks. Hover or focus to pause.">
+          <div class="hv-layer" data-depth="0.04"><div class="hero-band"></div></div>
+          <div class="hv-layer" data-depth="0.09" aria-hidden="true"><div class="orbit orbit-1"></div><div class="orbit orbit-2"></div></div>
+          <div class="hv-layer" data-depth="0.16" aria-hidden="true"><span class="pill pill-1"></span><span class="pill pill-2"></span><span class="pill pill-3"></span></div>
+          <div class="hv-layer" data-depth="0.11" aria-hidden="true"><div class="hero-model side side-l" id="heroSideL"></div><div class="hero-model side side-r" id="heroSideR"></div></div>
+          <div class="hv-layer" data-depth="0.2"><div class="hero-model main" id="heroFigure"></div></div>
+          <div class="hv-layer floats" id="heroFloats"></div>
+          <div class="featured-look" id="featuredLook">
+            <p class="eyebrow">Featured look</p>
+            <p class="fl-name" id="heroLookName"></p>
+            <div class="fl-row"><span class="price-pill" id="heroLookPrice"></span><div class="hero-dots" id="heroDots" aria-hidden="true"></div></div>
+            <button class="btn btn-soft btn-sm" type="button" id="heroWearLook">Wear this look</button>
+          </div>
+        </div>
+      </div>
+      <a class="scroll-cue" href="#builder" aria-label="Scroll to the fitting room">
+        <span>Scroll</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+      </a>
+    </section>
+
+    <!-- Value strip -->
+    <section class="values" aria-label="Why ChillASF">
+      <ul class="container values-list">
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19c8 0 14-6 14-14C11 5 5 11 5 19Z"/><path d="M5 19 13 11"/></svg><span>Breathable natural fabrics</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 3-6.2"/><path d="M4 4v4h4"/></svg><span>Free returns in 30 days</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span>Made to combine</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 15h11V7H3v8Z"/><path d="M14 10h4l3 3v2h-7"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg><span>Carbon-neutral shipping</span></li>
+      </ul>
+    </section>
+
+    <!-- Outfit builder -->
+    <section id="builder" class="section room" data-theme="studio" aria-labelledby="builderTitle">
+     <div class="container">
+      <div class="section-head room-head">
+        <p class="wordmark-serif" aria-hidden="true">CHILLASF</p>
+        <p class="eyebrow">Fitting room</p>
+        <h2 id="builderTitle">Build your outfit</h2>
+        <p>Drag a piece onto the model, or press <strong>Wear</strong>. Tap a swatch to change its colour.</p>
+      </div>
+
+      <div class="occasion-bar" id="occasionBar" hidden>
+        <div><span class="badge badge-soft">Occasion Match</span> <strong id="occasionPrompt"></strong></div>
+        <div class="occasion-bar-right">
+          <span class="timer" id="occasionTime" aria-live="off">60</span>
+          <button class="btn btn-primary btn-sm" id="occasionSubmit" type="button">Score my look</button>
+          <button class="btn btn-ghost btn-sm" id="occasionCancel" type="button">Quit</button>
+        </div>
+      </div>
+
+      <div class="builder-grid">
+        <!-- Wardrobe -->
+        <aside class="panel wardrobe" aria-labelledby="wardrobeTitle">
+          <h3 id="wardrobeTitle" class="panel-label">Wardrobe</h3>
+          <div class="tabs" role="tablist" aria-label="Categories" id="wardrobeTabs"></div>
+          <div class="filters">
+            <div class="chip-row" id="colourFilter" role="group" aria-label="Filter by colour"></div>
+            <div class="filter-row">
+              <label class="field-inline">Occasion
+                <select id="occasionFilter">
+                  <option value="">Any</option>
+                  <option value="casual">Casual</option>
+                  <option value="smart-casual">Smart-casual</option>
+                  <option value="work">Work</option>
+                  <option value="weekend">Weekend</option>
+                </select>
+              </label>
+              <label class="field-inline price-filter">Up to <output id="priceOut" for="priceFilter">$250</output>
+                <input type="range" id="priceFilter" min="30" max="250" step="5" value="250">
+              </label>
+            </div>
+          </div>
+          <div class="wardrobe-list" id="wardrobeList" role="tabpanel" aria-labelledby="wardrobeTitle"></div>
+        </aside>
+
+        <!-- Stage -->
+        <div class="stage-col">
+          <div class="model-controls">
+            <div class="seg" role="group" aria-label="Body shape" id="bodyToggle">
+              <button type="button" data-body="slim">Slim</button>
+              <button type="button" data-body="regular">Regular</button>
+              <button type="button" data-body="broad">Broad</button>
+            </div>
+            <div class="skin-row" role="group" aria-label="Skin tone" id="skinToggle"></div>
+          </div>
+          <div class="stage" id="stage">
+            <div class="stage-figure" id="stageFigure"></div>
+            <div class="zones" aria-hidden="true">
+              <div class="zone" data-zone="head"><span>Head</span></div>
+              <div class="zone" data-zone="upper"><span>Upper body</span></div>
+              <div class="zone" data-zone="legs"><span>Legs</span></div>
+              <div class="zone" data-zone="feet"><span>Feet</span></div>
+            </div>
+            <div class="removers" id="stageRemovers"></div>
+            <p class="stage-hint" id="stageHint" aria-hidden="true"></p>
+          </div>
+          <div class="stage-actions">
+            <button class="btn btn-ghost btn-sm" type="button" id="shuffleBtn">Shuffle</button>
+            <button class="btn btn-ghost btn-sm" type="button" id="undoBtn">Undo</button>
+            <button class="btn btn-ghost btn-sm" type="button" id="resetBtn">Reset</button>
+            <button class="btn btn-ghost btn-sm" type="button" id="saveLookBtn">Save look</button>
+            <button class="btn btn-ghost btn-sm" type="button" id="shareLookBtn">Share look</button>
+          </div>
+          <div class="share-out" id="shareOut" hidden>
+            <label for="shareUrl">Link to this look</label>
+            <input id="shareUrl" type="text" readonly>
+          </div>
+          <div class="saved-looks">
+            <h4>Saved looks <span class="muted" id="savedCount">0 of 6</span></h4>
+            <ul id="savedLooks" class="saved-list"></ul>
+          </div>
+        </div>
+
+        <!-- Look summary -->
+        <aside class="panel summary" aria-labelledby="summaryTitle">
+          <h3 id="summaryTitle" class="panel-label">Your look</h3>
+          <ul class="look-items" id="lookItems"></ul>
+          <div class="score">
+            <div class="score-head"><span>Style score</span><strong id="scoreValue">0</strong></div>
+            <div class="score-bar" aria-hidden="true"><span id="scoreBar"></span></div>
+            <p class="score-reason" id="scoreReason"></p>
+          </div>
+          <div class="look-total"><span>Outfit total</span><strong id="lookTotal">$0</strong></div>
+          <button class="btn btn-primary btn-block" type="button" id="addLookBtn">Add whole look to cart</button>
+          <p class="form-msg" id="lookMsg" role="status"></p>
+        </aside>
+      </div>
+     </div>
+    </section>
+
+    <!-- Play -->
+    <section id="play" class="section section-alt" aria-labelledby="playTitle">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="playTitle">Play</h2>
+          <p>Four short games. Each one ends with something useful: a look for the model or a discount.</p>
+        </div>
+        <div class="photo-promo">
+          <figure class="photo-frame" data-photo-parallax>
+            <img src="assets/img/crew.webp" width="1536" height="1024" loading="lazy" decoding="async"
+              alt="Five friends smiling at the camera in violet and lavender tees, a hoodie and an open overshirt, with stone trousers and light denim.">
+          </figure>
+          <div class="promo-panel">
+            <h3 class="promo-head">Style it with your crew. Win the code.</h3>
+            <button class="btn btn-dark" type="button" data-game="capsule">Start the challenge</button>
+          </div>
+        </div>
+        <div class="game-grid">
+          <article class="game-card">
+            <span class="game-meta">5 questions · 1 min</span>
+            <h3>Find your everyday style</h3>
+            <p>Answer five quick questions. Get a style profile and a ready-made outfit.</p>
+            <button class="btn btn-soft btn-sm" type="button" data-game="quiz">Take the quiz</button>
+          </article>
+          <article class="game-card">
+            <span class="game-meta">Under $400 · 2 min</span>
+            <h3>5 pieces, 10 outfits</h3>
+            <p>Pick five pieces that combine into at least ten outfits. Win a discount code.</p>
+            <button class="btn btn-soft btn-sm" type="button" data-game="capsule">Start the challenge</button>
+          </article>
+          <article class="game-card">
+            <span class="game-meta">10 rounds · 1 min</span>
+            <h3>This or That</h3>
+            <p>Pick the one you would wear. We learn your taste and tune suggestions to it.</p>
+            <button class="btn btn-soft btn-sm" type="button" data-game="tot">Play This or That</button>
+          </article>
+          <article class="game-card">
+            <span class="game-meta">60 seconds</span>
+            <h3>Occasion Match</h3>
+            <p>Get an occasion and a timer. Dress the model, then see how many stars you earn.</p>
+            <button class="btn btn-soft btn-sm" type="button" data-game="occasion">Start the timer</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Suggestions -->
+    <section id="suggestions" class="section container" aria-labelledby="suggestTitle">
+     <div class="suggest-intro">
+      <div>
+      <div class="section-head">
+        <p class="eyebrow"><span aria-hidden="true">✦</span> Recommended for you</p>
+        <h2 id="suggestTitle">Styled for you</h2>
+        <p>Simple, open rules: colour harmony, matching polish, the weather and your taste.</p>
+      </div>
+      <div class="suggest-controls">
+        <div class="seg" role="group" aria-label="Weather" id="weatherToggle">
+          <button type="button" data-weather="warm">Warm</button>
+          <button type="button" data-weather="mild">Mild</button>
+          <button type="button" data-weather="cool">Cool</button>
+        </div>
+        <label class="field-inline">Occasion
+          <select id="occasionSelect">
+            <option value="">Any</option>
+            <option value="casual">Casual</option>
+            <option value="smart-casual">Smart-casual</option>
+            <option value="work">Work</option>
+            <option value="weekend">Weekend</option>
+          </select>
+        </label>
+        <p class="muted taste-line" id="tasteLine"></p>
+      </div>
+      </div>
+      <figure class="photo-frame look-photo" data-photo-parallax>
+        <img src="assets/img/overshirt.webp" width="1536" height="1024" loading="lazy" decoding="async"
+          alt="A smiling woman in a violet overshirt worn open over a lavender tee, with high-waisted pleated violet trousers.">
+        <figcaption class="pins">
+          <button type="button" class="pin" style="left:62%;top:44%" data-pin="over-01">Cotton Overshirt <span class="price-pill">$109</span></button>
+          <button type="button" class="pin" style="left:44%;top:72%" data-pin="trouser-01">Pleated Wide Trousers <span class="price-pill">$119</span></button>
+          <button type="button" class="pin" style="left:30%;top:30%" data-pin="tee-01">Everyday Organic Tee <span class="price-pill">$39</span></button>
+        </figcaption>
+      </figure>
+     </div>
+      <h3 class="sub-head" id="suggestHead">Complete the look</h3>
+      <div class="suggest-grid" id="suggestGrid"></div>
+      <h3 class="sub-head">Looks of the week</h3>
+      <div class="week-grid" id="weekLooks"></div>
+    </section>
+
+    <!-- Shop -->
+    <section id="shop" class="section section-alt" aria-labelledby="shopTitle">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="shopTitle">Shop</h2>
+          <p>Soft cotton. Clean lines. Goes with everything.</p>
+        </div>
+        <div class="shop-banner">
+          <div class="shop-banner-copy">
+            <h3 class="promo-head">Easy tees. Soft knits. Every day.</h3>
+            <button class="btn btn-dark" type="button" id="shopTopsBtn">Shop tops</button>
+          </div>
+          <figure class="photo-frame" data-photo-parallax>
+            <img src="assets/img/easy-tee.webp" width="1536" height="1024" loading="lazy" decoding="async"
+              alt="A man sitting relaxed in a violet tee with a lavender sweater tied over his shoulders, stone trousers and white sneakers.">
+          </figure>
+        </div>
+        <div class="shop-filters">
+          <label class="field-inline">Category
+            <select id="shopCategory"><option value="">All</option></select>
+          </label>
+          <label class="field-inline">Colour
+            <select id="shopColour"><option value="">All</option></select>
+          </label>
+          <label class="field-inline">Size
+            <select id="shopSize"><option value="">All</option></select>
+          </label>
+          <label class="field-inline price-filter">Up to <output id="shopPriceOut" for="shopPrice">$250</output>
+            <input type="range" id="shopPrice" min="30" max="250" step="5" value="250">
+          </label>
+          <label class="field-inline">Sort
+            <select id="shopSort">
+              <option value="featured">Featured</option>
+              <option value="price-asc">Price, low to high</option>
+              <option value="new">New</option>
+            </select>
+          </label>
+        </div>
+        <p class="muted" id="shopCount" role="status"></p>
+        <div class="shop-grid" id="shopGrid"></div>
+      </div>
+    </section>
+
+    <!-- Reviews -->
+    <section class="section container" aria-labelledby="reviewsTitle">
+      <div class="section-head">
+        <h2 id="reviewsTitle">What people say</h2>
+        <p class="muted">Sample reviews written for this demo. They are not from real customers.</p>
+      </div>
+      <div class="review-grid">
+        <figure class="review"><span class="badge badge-soft">Sample review</span>
+          <blockquote>The chinos fit on the first try. I bought a second pair the same week.</blockquote>
+          <figcaption>Sample customer, Melbourne</figcaption></figure>
+        <figure class="review"><span class="badge badge-soft">Sample review</span>
+          <blockquote>Building the outfit first meant I bought three pieces instead of eight.</blockquote>
+          <figcaption>Sample customer, Perth</figcaption></figure>
+        <figure class="review"><span class="badge badge-soft">Sample review</span>
+          <blockquote>The merino knit is soft, warm and holds its shape. Quietly very good.</blockquote>
+          <figcaption>Sample customer, Hobart</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section container faq" aria-labelledby="faqTitle">
+      <div class="section-head"><h2 id="faqTitle">Questions</h2></div>
+      <details><summary>How do your sizes run?</summary><p>Most pieces are true to size. Each product shows a fit note and a size guide in quick view. Boxy pieces run wide, so size down for a closer fit.</p></details>
+      <details><summary>What is your returns policy?</summary><p>Free returns within 30 days on unworn items with tags attached. (Placeholder policy for this demo.)</p></details>
+      <details><summary>How long does shipping take?</summary><p>Standard delivery takes 3–5 business days. Express takes 1–2 business days for $12. Shipping is free on orders of $150 or more.</p></details>
+      <details><summary>How should I care for my clothes?</summary><p>Wash less, wash cold and line dry. Care details for every piece are in quick view.</p></details>
+      <details><summary>What about sustainability?</summary><p>We favour natural and recycled fibres and make fewer, better pieces. Claims on this page are placeholders for the demo.</p></details>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <p class="wordmark">ChillASF</p>
+        <p class="muted">Essentials, made to be worn every day.</p>
+        <p class="demo-note">Demo store: no payment is taken and no orders are shipped.</p>
+      </div>
+      <form class="newsletter" id="newsletterForm" novalidate>
+        <label for="newsletterEmail">New pieces, rarely. Join the list.</label>
+        <div class="inline-form">
+          <input id="newsletterEmail" type="email" autocomplete="email" placeholder="you@example.com" aria-describedby="newsletterMsg">
+          <button class="btn btn-primary btn-sm" type="submit">Subscribe</button>
+        </div>
+        <p class="form-msg" id="newsletterMsg" role="status"></p>
+      </form>
+      <nav aria-label="Footer">
+        <ul class="footer-links">
+          <li><a href="#shop">Shop</a></li>
+          <li><a href="#faq">Shipping &amp; returns</a></li>
+          <li><a href="#faq">Care guide</a></li>
+          <li><a href="#builder">Outfit builder</a></li>
+        </ul>
+        <div class="socials">
+          <a href="#top" aria-label="Social profile (placeholder)"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.5"/></svg></a>
+          <a href="#top" aria-label="Video channel (placeholder)"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="m10 9 5 3-5 3V9Z"/></svg></a>
+          <a href="#top" aria-label="Pin board (placeholder)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 8v8M8 12h8"/></svg></a>
+        </div>
+      </nav>
+    </div>
+  </footer>
+
+  <div id="live" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Dialogs -->
+  <dialog class="modal" id="gameDialog" aria-labelledby="gameTitle">
+    <div class="modal-head"><h2 id="gameTitle">Play</h2><button class="icon-btn" type="button" data-close aria-label="Close game"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+    <div class="modal-body" id="gameBody"></div>
+  </dialog>
+
+  <dialog class="modal modal-wide" id="quickView" aria-labelledby="qvTitle">
+    <div class="modal-head"><h2 id="qvTitle">Quick view</h2><button class="icon-btn" type="button" data-close aria-label="Close quick view"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+    <div class="modal-body" id="qvBody"></div>
+  </dialog>
+
+  <dialog class="drawer" id="cartDrawer" aria-labelledby="cartTitle">
+    <div class="modal-head"><h2 id="cartTitle">Your cart</h2><button class="icon-btn" type="button" data-close aria-label="Close cart"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+    <div class="drawer-body" id="cartBody"></div>
+  </dialog>
+
+  <dialog class="modal modal-wide" id="checkoutDialog" aria-labelledby="checkoutTitle">
+    <div class="modal-head"><h2 id="checkoutTitle">Checkout</h2><button class="icon-btn" type="button" data-close aria-label="Close checkout"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+    <div class="modal-body" id="checkoutBody"></div>
+  </dialog>
+</body>
+</html>

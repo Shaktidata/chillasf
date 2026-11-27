@@ -1,0 +1,16 @@
+# Unused reference / source images (not used by the website)
+/*.jpg
+/*.png
+
+# Build brief, not part of the website
+prompt.md
+
+# OS and editor clutter
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+*.swp
+.vscode/
+.idea/
+node_modules/
